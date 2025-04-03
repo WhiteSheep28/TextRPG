@@ -3,8 +3,6 @@
 
 void main()
 {
-	int test = 0;
-
 	int nHe = 0;
 	int nAt = 0;
 	int nMp = 0;
