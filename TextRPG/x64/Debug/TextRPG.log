@@ -1,0 +1,5 @@
+﻿  Item.cpp
+  main.cpp
+C:\Users\white\source\repos\TextRPG\TextRPG\main.cpp(21,6): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  코드를 생성하고 있습니다...
+  TextRPG.vcxproj -> C:\Users\white\source\repos\TextRPG\x64\Debug\TextRPG.exe

@@ -1,0 +1,33 @@
+#include <iostream>
+
+#include "Character.h"
+#include "Socerer.h"
+
+using namespace std;
+
+cSocerer::cSocerer()
+{
+	m_strName = "마법사";
+	m_nHealth = 100;
+	m_nAttack = 10;
+	m_nDefense = 10;
+	m_nMana = 100;
+	m_nHungry = 100;
+}
+
+cSocerer::~cSocerer()
+{
+
+}
+
+void cSocerer::Skill_Tree()
+{
+	cout << "{ 스킬 }" << endl;
+	cout << "1. 일반 공격" << endl;
+	cout << "2. 에너지 볼트" << endl;
+	cout << "3. 썬더 볼트" << endl;
+	cout << "4. 파이어 에로우" << endl;
+	cout << "5. 인벤토리" << endl;
+	cout << "6. 장비창" << endl;
+	cout << "Space. 나가기" << endl;
+}
