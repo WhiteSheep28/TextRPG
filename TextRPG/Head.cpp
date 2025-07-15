@@ -14,3 +14,8 @@ cHead::~cHead()
 {
 
 }
+
+void cHead::Head_Ui()
+{
+
+}

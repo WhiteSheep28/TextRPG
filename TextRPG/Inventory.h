@@ -12,9 +12,9 @@ public:
 	cInventory();
 	virtual ~cInventory();
 
-	virtual void Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cInventory* pInventory, cMainSystem* pItem);
-	virtual void GetItem(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
-	virtual void InventoryClean(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
+	virtual void Inventory_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cItem* pItem);
+	virtual void GetItem(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount);
+	virtual void InventoryClean(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount);
 
 protected:
 	int m_nInventorySlot[10];

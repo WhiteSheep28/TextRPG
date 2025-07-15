@@ -2,6 +2,7 @@
 
 #include "MainSystem.h"
 #include "MainUi.h"
+#include "Character.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ void cMainUi::Job_Select()
 	cout << "3. 마법사" << endl;
 }
 
-void cMainUi::Job_Introduce(cMainSystem* pCharacter)
+void cMainUi::Job_Introduce(cCharacter* pCharacter)
 {
 	system("cls");
 
@@ -43,7 +44,7 @@ void cMainUi::Job_Introduce(cMainSystem* pCharacter)
 	cout << "Space. 뒤로가기" << endl;
 }
 
-void cMainUi::Game_Main(cMainSystem* pCharacter)
+void cMainUi::Game_Main(cCharacter* pCharacter)
 {
 	system("cls");
 	pCharacter->My_Stats();

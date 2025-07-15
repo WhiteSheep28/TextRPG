@@ -14,3 +14,8 @@ cWeapon::~cWeapon()
 {
 
 }
+
+void cWeapon::Weapon_Ui()
+{
+
+}

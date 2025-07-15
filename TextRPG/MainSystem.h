@@ -4,6 +4,15 @@
 
 using namespace std;
 
+class cCharacter;
+class cInventory;
+class cItem;
+class cEquipment;
+class cBodyItem;
+class cHeadItem;
+class cLegItem;
+class cWeaponItem;
+
 class cMainSystem
 {
 public:
@@ -17,8 +26,8 @@ public:
 	//MainUi
 	virtual void Game_Start() { ; }
 	virtual void Job_Select() { ; }
-	virtual void Job_Introduce(cMainSystem* pCharacter) { ; }
-	virtual void Game_Main(cMainSystem* pCharacter) { ; }
+	virtual void Job_Introduce(cCharacter* pCharacter) { ; }
+	virtual void Game_Main(cCharacter* pCharacter) { ; }
 
 	//DungeonUi
 	virtual void Dungeon_Start() { ; }
@@ -27,17 +36,32 @@ public:
 	virtual void Farm_Start() { ; }
 
 	//Inventory
-	virtual void Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cMainSystem* pInventory, cMainSystem* pItem) { ; }
-	virtual void GetItem(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount) { ; }
-	virtual void InventoryClean(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount) { ; }
+	virtual void Inventory_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cItem* pItem) { ; }
+	virtual void GetItem(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount) { ; }
+	virtual void InventoryClean(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount) { ; }
 
 	//Item
-	virtual void SearchItemCode(cMainSystem* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool) { ; }
-	virtual void UseBread(cMainSystem* pCharacter) { ; }
-	virtual void UseHealingPotion(cMainSystem* pCharacter) { ; }
+	virtual void SearchItemCode(cInventory* pInventory, cCharacter* pCharacter, int nItemNum, int nItemCount, int nSelectTool) { ; }
+	virtual void UseBread(cCharacter* pCharacter) { ; }
+	virtual void UseHealingPotion(cCharacter* pCharacter) { ; }
 
 	//Equipment
-	virtual void Equipment_Ui() { ; }
+	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem) { ; }
+
+	//Head
+	virtual void Head_Ui() { ; }
+
+	//Body
+	virtual void Body_Ui() { ; }
+
+	//Leg
+	virtual void Leg_Ui() { ; }
+
+	//Weapon
+	virtual void Weapon_Ui() { ; }
+
+	//EquipmentItem
+	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool) { ; }
 
 	//Character
 	virtual void My_Stats() { ; }
@@ -56,6 +80,7 @@ protected:
 
 	//Equipment
 	int m_nEquipmentSlot[4];
+	int m_nEquipmentCount;
 
 	//Character, Monster
 	string m_strName;
@@ -67,5 +92,4 @@ protected:
 
 private:
 
-	friend class cItem;
 };

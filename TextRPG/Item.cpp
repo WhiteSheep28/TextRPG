@@ -23,7 +23,7 @@ cItem::~cItem()
 
 }
 
-void cItem::SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool)
+void cItem::SearchItemCode(cInventory* pInventory, cCharacter* pCharacter, int nItemNum, int nItemCount, int nSelectTool)
 {
 	switch (nItemNum)
 	{
@@ -71,7 +71,10 @@ void cItem::SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int 
 		}
 		else if (nSelectTool == DeleteItem)
 		{
-			pInventory->m_nInventorySlot[pInventory->m_nInventoryCount] = 0;
+			if (m_nMyHealingPotion == 0)
+			{
+				pInventory->m_nInventorySlot[pInventory->m_nInventoryCount] = 0;
+			}
 		}
 
 		break;
@@ -79,7 +82,7 @@ void cItem::SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int 
 	}
 }
 
-void cItem::UseBread(cMainSystem* pCharacter)
+void cItem::UseBread(cCharacter* pCharacter)
 {
 	pCharacter = (cCharacter*)pCharacter;
 
@@ -91,7 +94,7 @@ void cItem::UseBread(cMainSystem* pCharacter)
 	}
 }
 
-void cItem::UseHealingPotion(cMainSystem* pCharacter)
+void cItem::UseHealingPotion(cCharacter* pCharacter)
 {
 	pCharacter = (cCharacter*)pCharacter;
 

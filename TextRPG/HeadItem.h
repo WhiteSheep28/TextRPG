@@ -10,7 +10,9 @@ class cHeadItem : public cMainSystem
 {
 public:
 	cHeadItem();
-	~cHeadItem();
+	virtual ~cHeadItem();
+
+	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool);
 
 protected:
 

@@ -10,9 +10,13 @@ class cBody : public cMainSystem
 {
 public:
 	cBody();
-	~cBody();
+	virtual ~cBody();
+
+	virtual void Body_Ui();
 
 protected:
+	int m_nEquipmentSlot[10];
+	int m_nEquipmentCount;
 
 private:
 

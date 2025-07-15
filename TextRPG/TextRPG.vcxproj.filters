@@ -186,7 +186,7 @@
       <Filter>헤더 파일\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
-      <Filter>헤더 파일\Item</Filter>
+      <Filter>헤더 파일\Inventory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

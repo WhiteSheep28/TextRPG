@@ -10,12 +10,22 @@ class cEquipment : public cMainSystem
 {
 public:
 	cEquipment();
-	~cEquipment();
+	virtual ~cEquipment();
 
-	virtual void Equipment_Ui();
+	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem);
 
 protected:
+	int m_nEquipmentSlot[4];
+	int m_nEquipmentCount;
 
 private:
 
+	friend class cHeadItem;
+	friend class cBodyItem;
+	friend class cLegItem;
+	friend class cWeaponItem;
+	friend class cHead;
+	friend class cBody;
+	friend class cLeg;
+	friend class cWeapon;
 };

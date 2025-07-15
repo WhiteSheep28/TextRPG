@@ -12,10 +12,10 @@ public:
 	cItem();
 	~cItem();
 
-	virtual void SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool);
+	virtual void SearchItemCode(cInventory* pInventory, cCharacter* pCharacter, int nItemNum, int nItemCount, int nSelectTool);
 
-	virtual void UseBread(cMainSystem* pCharacter);
-	virtual void UseHealingPotion(cMainSystem* pCharacter);
+	virtual void UseBread(cCharacter* pCharacter);
+	virtual void UseHealingPotion(cCharacter* pCharacter);
 
 protected:
 	int m_nMyBread;

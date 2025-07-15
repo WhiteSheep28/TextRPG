@@ -12,6 +12,8 @@ public:
 	cWeaponItem();
 	~cWeaponItem();
 
+	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool);
+
 protected:
 
 private:

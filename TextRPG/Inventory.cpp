@@ -1,7 +1,9 @@
 #include <iostream>
 
 #include "MainSystem.h"
+#include "Character.h"
 #include "Inventory.h"
+#include "Item.h"
 
 #define LastInventorySlot 10
 
@@ -22,7 +24,7 @@ cInventory::~cInventory()
 
 }
 
-void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cInventory* pInventory, cMainSystem* pItem)
+void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cItem* pItem)
 {
 	while (1)
 	{
@@ -58,7 +60,7 @@ void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter,
 	}
 }
 
-void cInventory::GetItem(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
+void cInventory::GetItem(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount)
 {
 	m_nInventoryCount = 0;
 
@@ -89,7 +91,7 @@ void cInventory::GetItem(cInventory* pInventory, cMainSystem* pCharacter, cMainS
 	}
 }
 
-void cInventory::InventoryClean(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
+void cInventory::InventoryClean(cInventory* pInventory, cCharacter* pCharacter, cItem* pItem, int nItemNum, int nItemCount)
 {
 	int nTempCount = 0;
 

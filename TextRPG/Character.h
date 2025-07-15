@@ -25,4 +25,5 @@ protected:
 
 private:
 
+	friend class cItem;
 };

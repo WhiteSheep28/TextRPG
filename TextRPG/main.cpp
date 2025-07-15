@@ -15,6 +15,10 @@
 #include "Item.h"
 
 #include "Equipment.h"
+#include "HeadItem.h"
+#include "BodyItem.h"
+#include "LegItem.h"
+#include "WeaponItem.h"
 
 using namespace std;
 
@@ -22,24 +26,22 @@ void main()
 {
 	cMainSystem* pMainSystem = new cMainSystem;
 
-	cMainUi MainUi;
-	cMainSystem* pMainUi = &MainUi;
+	cMainSystem* pMainUi = new cMainUi;
+	cMainSystem* pDungeonUi = new cDungeonUi;
+	cMainSystem* pFarmUi = new cFarmUi;
 
-	cDungeonUi DungeonUi;
-	cMainSystem* pDungeonUi = &DungeonUi;
+	cMainSystem* pCharacter = new cCharacter;
 
-	cFarmUi FarmUi;
-	cMainSystem* pFarmUi = &FarmUi;
+	cMainSystem* pInventory = new cInventory;
 
-	cCharacter Character;
-	cMainSystem* pCharacter = &Character;
+	cMainSystem* pItem = new cItem;
 
-	cInventory* pInventory = new cInventory;
+	cMainSystem* pEquipment = new cEquipment;
 
-	cItem* pItem = new cItem;
-
-	cEquipment Equipment;
-	cMainSystem* pEquipment = &Equipment;
+	cMainSystem* pHeadItem = new cHeadItem;
+	cMainSystem* pBodyItem = new cBodyItem;
+	cMainSystem* pLegItem = new cLegItem;
+	cMainSystem* pWeaponItem = new cWeaponItem;
 
 	//게임 시작
 	while (1)
@@ -85,7 +87,7 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(pCharacter);
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
 
 				pMainSystem->InputSelect();
 
@@ -118,7 +120,7 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(pCharacter);
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
 
 				pMainSystem->InputSelect();
 
@@ -151,7 +153,7 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(pCharacter);
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
 
 				pMainSystem->InputSelect();
 
@@ -184,7 +186,7 @@ void main()
 	//메인 화면
 	while (1)
 	{
-		pMainUi->Game_Main(pCharacter);
+		pMainUi->Game_Main(dynamic_cast<cCharacter*>(pCharacter));
 
 		pMainSystem->InputSelect();
 
@@ -198,11 +200,11 @@ void main()
 		}
 		else if (pMainSystem->GetSelect() == '3')
 		{
-			pInventory->Inventory_Ui(pInventory, pCharacter, pInventory, pItem);
+            pInventory->Inventory_Ui(pMainSystem, dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cInventory*>(pInventory), dynamic_cast<cItem*>(pItem));
 		}
 		else if (pMainSystem->GetSelect() == '4')
 		{
-			pEquipment->Equipment_Ui();
+			pEquipment->Equipment_Ui(pMainSystem, dynamic_cast<cEquipment*>(pEquipment), dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
 		}
 		else if (pMainSystem->GetSelect() == ' ')
 		{

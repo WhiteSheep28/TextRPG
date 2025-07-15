@@ -14,8 +14,8 @@ public:
 
 	virtual void Game_Start();
 	virtual void Job_Select();
-	virtual void Job_Introduce(cMainSystem* pCharacter);
-	virtual void Game_Main(cMainSystem* pCharacter);
+	virtual void Job_Introduce(cCharacter* pCharacter);
+	virtual void Game_Main(cCharacter* pCharacter);
 
 protected:
 

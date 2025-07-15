@@ -14,3 +14,8 @@ cLeg::~cLeg()
 {
 
 }
+
+void cLeg::Leg_Ui()
+{
+
+}
