@@ -22,19 +22,24 @@ void main()
 {
 	cMainSystem* pMainSystem = new cMainSystem;
 
-	cMainSystem* pMainUi = new cMainUi;
-	cMainSystem* pDungeonUi = new cDungeonUi;
-	cMainSystem* pFarmUi = new cFarmUi;
+	cMainUi MainUi;
+	cMainSystem* pMainUi = &MainUi;
 
-	cMainSystem* pCharacter = new cCharacter;
+	cDungeonUi DungeonUi;
+	cMainSystem* pDungeonUi = &DungeonUi;
 
-	cMainSystem* pInventory = new cInventory;
+	cFarmUi FarmUi;
+	cMainSystem* pFarmUi = &FarmUi;
 
-	cInventory* Down = (cInventory*)pMainSystem;
+	cCharacter Character;
+	cMainSystem* pCharacter = &Character;
 
-	cMainSystem* pItem = new cItem;
+	cInventory* pInventory = new cInventory;
 
-	cMainSystem* pEquipment = new cEquipment;
+	cItem* pItem = new cItem;
+
+	cEquipment Equipment;
+	cMainSystem* pEquipment = &Equipment;
 
 	//게임 시작
 	while (1)

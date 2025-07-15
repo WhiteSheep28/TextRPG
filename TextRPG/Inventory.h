@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "MainSystem.h"
-#include "Item.h"
 
 using namespace std;
 
@@ -13,9 +12,9 @@ public:
 	cInventory();
 	virtual ~cInventory();
 
-	virtual void Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cMainSystem* pInventory, cMainSystem* pItem);
-	virtual void GetItem(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
-	virtual void InventoryClean(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
+	virtual void Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cInventory* pInventory, cMainSystem* pItem);
+	virtual void GetItem(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
+	virtual void InventoryClean(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount);
 
 protected:
 	int m_nInventorySlot[10];

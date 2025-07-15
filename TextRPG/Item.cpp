@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "MainSystem.h"
+#include "Inventory.h"
 #include "Item.h"
 #include "Character.h"
 
@@ -22,10 +23,8 @@ cItem::~cItem()
 
 }
 
-void cItem::SearchItemCode(cMainSystem* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool)
+void cItem::SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool)
 {
-	pInventory = (cInventory*)pInventory;
-
 	switch (nItemNum)
 	{
 	case '1':

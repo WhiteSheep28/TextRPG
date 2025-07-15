@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "MainSystem.h"
-#include "Inventory.h"
 
 using namespace std;
 
@@ -13,7 +12,7 @@ public:
 	cItem();
 	~cItem();
 
-	virtual void SearchItemCode(cMainSystem* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool);
+	virtual void SearchItemCode(cInventory* pInventory, cMainSystem* pCharacter, int nItemNum, int nItemCount, int nSelectTool);
 
 	virtual void UseBread(cMainSystem* pCharacter);
 	virtual void UseHealingPotion(cMainSystem* pCharacter);

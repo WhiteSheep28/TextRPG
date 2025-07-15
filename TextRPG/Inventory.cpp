@@ -22,7 +22,7 @@ cInventory::~cInventory()
 
 }
 
-void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cMainSystem* pInventory, cMainSystem* pItem)
+void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter, cInventory* pInventory, cMainSystem* pItem)
 {
 	while (1)
 	{
@@ -58,7 +58,7 @@ void cInventory::Inventory_Ui(cMainSystem* pMainSystem, cMainSystem* pCharacter,
 	}
 }
 
-void cInventory::GetItem(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
+void cInventory::GetItem(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
 {
 	m_nInventoryCount = 0;
 
@@ -89,7 +89,7 @@ void cInventory::GetItem(cMainSystem* pInventory, cMainSystem* pCharacter, cMain
 	}
 }
 
-void cInventory::InventoryClean(cMainSystem* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
+void cInventory::InventoryClean(cInventory* pInventory, cMainSystem* pCharacter, cMainSystem* pItem, int nItemNum, int nItemCount)
 {
 	int nTempCount = 0;
 

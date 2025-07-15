@@ -21,5 +21,6 @@ void cDungeonUi::Dungeon_Start()
 	{
 		system("cls");
 		cout << "던전입니당" << endl;
+		break;
 	}
 }

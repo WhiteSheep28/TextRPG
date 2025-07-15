@@ -111,11 +111,11 @@
     <ClCompile Include="LegItem.cpp">
       <Filter>소스 파일\Item</Filter>
     </ClCompile>
-    <ClCompile Include="WeaponItem.cpp">
-      <Filter>소스 파일\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Goblin.cpp">
       <Filter>소스 파일\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponItem.cpp">
+      <Filter>소스 파일\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClInclude Include="DungeonUi.h">
       <Filter>헤더 파일\Ui</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>헤더 파일\Inventory</Filter>
-    </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>헤더 파일\Inventory</Filter>
     </ClInclude>
@@ -187,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Wolf.h">
       <Filter>헤더 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>헤더 파일\Item</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
