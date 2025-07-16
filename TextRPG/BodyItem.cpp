@@ -3,6 +3,7 @@
 #include "MainSystem.h"
 #include "BodyItem.h"
 #include "Equipment.h"
+#include "Character.h"
 
 #define EquipmentUi 1
 #define UseEquipment 2
@@ -21,7 +22,7 @@ cBodyItem::~cBodyItem()
 
 }
 
-void cBodyItem::SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool)
+void cBodyItem::SearchEquipmentCode(cCharacter* pCharacter, cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool)
 {
 	switch (nEquipmentNum)
 	{
@@ -29,6 +30,8 @@ void cBodyItem::SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int
 	case 0:
 	{
 		cout << "Àåºñ ¾øÀ½";
+
+		break;
 	}
 	case '1':
 	case 1:
@@ -36,19 +39,31 @@ void cBodyItem::SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int
 		if (nSelectTool == EquipmentUi)
 		{
 			cout << "ÀÏ¹Ý °©¿Ê";
+
+			break;
 		}
 		else if (nSelectTool == UseEquipment)
 		{
-			pBodyItem->m_nEquipmentSlot[1] = 1;
+			NormalBodyStats(pCharacter);
+
+			break;
 		}
 		else if (nSelectTool == GetEquipment)
 		{
 			pBodyItem->m_nEquipmentSlot[1] = nEquipmentNum;
+
+			break;
 		}
 		else if (nSelectTool == DeleteEquipment)
 		{
 
+			break;
 		}
 	}
 	}
+}
+
+void cBodyItem::NormalBodyStats(cCharacter* pCharacter)
+{
+	pCharacter->m_nFullHealth += 100;
 }

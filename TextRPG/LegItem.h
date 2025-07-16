@@ -12,7 +12,9 @@ public:
 	cLegItem();
 	~cLegItem();
 
-	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool);
+	virtual void SearchEquipmentCode(cCharacter* pCharacter, cLegItem* pLegItem, int nEquipmentNum, int nSelectTool);
+	virtual void NormalLegStats(cCharacter* pCharacter);
+
 protected:
 
 private:

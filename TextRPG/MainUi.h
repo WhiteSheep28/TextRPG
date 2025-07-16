@@ -14,8 +14,10 @@ public:
 
 	virtual void Game_Start();
 	virtual void Job_Select();
-	virtual void Job_Introduce(cCharacter* pCharacter);
-	virtual void Game_Main(cCharacter* pCharacter);
+	virtual void Job_Introduce(cCharacter* pCharacter, cEquipment* pEquipment,
+		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem);
+	virtual void Game_Main(cMainSystem* pMainSystem, cCharacter* pCharacter, cEquipment* pEquipment,
+		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem);
 
 protected:
 

@@ -1,14 +1,20 @@
 #include <iostream>
 
 #include "MainSystem.h"
+
 #include "Equipment.h"
+
 #include "HeadItem.h"
 #include "BodyItem.h"
 #include "LegItem.h"
 #include "WeaponItem.h"
-#include "Body.h"
 
-#define LastEquipmentSlot 4
+#include "Head.h"
+#include "Body.h"
+#include "Leg.h"
+#include "Weapon.h"
+
+#define LastEquipmentSlot 10
 
 using namespace std;
 
@@ -30,7 +36,7 @@ cEquipment::~cEquipment()
 
 }
 
-void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
+void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cEquipment* pEquipment,
 cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
 cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
@@ -43,19 +49,19 @@ cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 		cout << "{ ÀåºñÃ¢ }" << endl;
 
 		cout << "¸Ó¸®. ";
-		pHeadItem->SearchEquipmentCode(pEquipment, m_nEquipmentSlot[0], 1);
+		pHeadItem->SearchEquipmentCode(pCharacter, pHeadItem, m_nEquipmentSlot[0], 1);
 		cout << endl;
 
 		cout << "°©¿Ê. ";
-		pBodyItem->SearchEquipmentCode(pBodyItem, m_nEquipmentSlot[1], 1);
+		pBodyItem->SearchEquipmentCode(pCharacter, pBodyItem, m_nEquipmentSlot[1], 1);
 		cout << endl;
 
 		cout << "¹ÙÁö. ";
-		pLegItem->SearchEquipmentCode(pEquipment, m_nEquipmentSlot[2], 1);
+		pLegItem->SearchEquipmentCode(pCharacter, pLegItem, m_nEquipmentSlot[2], 1);
 		cout << endl;
 
 		cout << "¹«±â. ";
-		pWeaponItem->SearchEquipmentCode(pEquipment, m_nEquipmentSlot[3], 1);
+		pWeaponItem->SearchEquipmentCode(pCharacter, pWeaponItem, m_nEquipmentSlot[3], 1);
 		cout << endl;
 
 		cout << "{ ¼±ÅÃÁö }" << endl;
@@ -69,19 +75,19 @@ cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 
 		if (pMainSystem->GetSelect() == '1')
 		{
-			pHeadItem->Head_Ui();
+			pHead->Head_Ui(pMainSystem, pCharacter, pHeadItem);
 		}
 		else if (pMainSystem->GetSelect() == '2')
 		{
-			pBody->Body_Ui(pMainSystem, pBodyItem);
+			pBody->Body_Ui(pMainSystem, pCharacter, pBodyItem);
 		}
 		else if (pMainSystem->GetSelect() == '3')
 		{
-			pLegItem->Leg_Ui();
+			pLeg->Leg_Ui(pMainSystem, pCharacter, pLegItem);
 		}
 		else if (pMainSystem->GetSelect() == '4')
 		{
-			pWeaponItem->Weapon_Ui();
+			pWeapon->Weapon_Ui(pMainSystem, pCharacter, pWeaponItem);
 		}
 		else if (pMainSystem->GetSelect() == ' ')
 		{
@@ -91,5 +97,97 @@ cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 		{
 			continue;
 		}
+	}
+}
+
+void cEquipment::GetEquipment(cEquipment* pEquipment, 
+	cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+	cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon,
+	int nEquipmentNum, int nEquipmentSlotNum)
+{
+	pEquipment->m_nEquipmentCount = 0;
+
+	switch (nEquipmentNum)
+	{
+	case '0':
+	case 0:
+	{
+		while (pEquipment->m_nEquipmentCount < LastEquipmentSlot)
+		{
+			if (pHead->m_nEquipmentSlot[m_nEquipmentCount] == 0)
+			{
+				pHead->m_nEquipmentSlot[m_nEquipmentCount] = nEquipmentNum;
+			}
+
+			m_nEquipmentCount++;
+		}
+
+		if (m_nEquipmentCount >= LastEquipmentSlot)
+		{
+			cout << "Åõ±¸ ÀåºñÃ¢ÀÌ ²Ë Ã¡½À´Ï´Ù!" << endl;
+		}
+
+		break;
+	}
+	case '1':
+	case 1:
+	{
+		while (pEquipment->m_nEquipmentCount < LastEquipmentSlot)
+		{
+			if (pBody->m_nEquipmentSlot[m_nEquipmentCount] == 0)
+			{
+				pBody->m_nEquipmentSlot[m_nEquipmentCount] = nEquipmentNum;
+			}
+
+			m_nEquipmentCount++;
+		}
+
+		if (m_nEquipmentCount >= LastEquipmentSlot)
+		{
+			cout << "°©¿Ê ÀåºñÃ¢ÀÌ ²Ë Ã¡½À´Ï´Ù!" << endl;
+		}
+
+		break;
+	}
+	case '2':
+	case 2:
+	{
+		while (pEquipment->m_nEquipmentCount < LastEquipmentSlot)
+		{
+			if (pLeg->m_nEquipmentSlot[m_nEquipmentCount] == 0)
+			{
+				pLeg->m_nEquipmentSlot[m_nEquipmentCount] = nEquipmentNum;
+			}
+
+			m_nEquipmentCount++;
+		}
+
+		if (m_nEquipmentCount >= LastEquipmentSlot)
+		{
+			cout << "¹ÙÁö ÀåºñÃ¢ÀÌ ²Ë Ã¡½À´Ï´Ù!" << endl;
+		}
+
+		break;
+	}
+	case '3':
+	case 3:
+	{
+		while (pEquipment->m_nEquipmentCount < LastEquipmentSlot)
+		{
+			if (pWeapon->m_nEquipmentSlot[m_nEquipmentCount] == 0)
+			{
+				pWeapon->m_nEquipmentSlot[m_nEquipmentCount] = nEquipmentNum;
+			}
+
+			m_nEquipmentCount++;
+		}
+
+		if (m_nEquipmentCount >= LastEquipmentSlot)
+		{
+			cout << "¹«±â ÀåºñÃ¢ÀÌ ²Ë Ã¡½À´Ï´Ù!" << endl;
+		}
+
+		break;
+	}
 	}
 }

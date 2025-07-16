@@ -3,6 +3,7 @@
 #include "MainSystem.h"
 #include "WeaponItem.h"
 #include "Equipment.h"
+#include "Character.h"
 
 #define EquipmentUi 1
 #define UseEquipment 2
@@ -21,29 +22,47 @@ cWeaponItem::~cWeaponItem()
 
 }
 
-void cWeaponItem::SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool)
+void cWeaponItem::SearchEquipmentCode(cCharacter* pCharacter, cWeaponItem* pWeaponItem, int nEquipmentNum, int nSelectTool)
 {
 	switch (nEquipmentNum)
 	{
+	case '0':
+	case 0:
+	{
+		cout << "장비 없음";
+
+		break;
+	}
 	case '1':
 	case 1:
 	{
 		if (nSelectTool == EquipmentUi)
 		{
 			cout << "일반 무기";
+
+			break;
 		}
 		else if (nSelectTool == UseEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[3] = 1;
+			NormalWeaponStats(pCharacter);
+
+			break;
 		}
 		else if (nSelectTool == GetEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[3] = nEquipmentNum;
+			pWeaponItem->m_nEquipmentSlot[3] = nEquipmentNum;
+
+			break;
 		}
 		else if (nSelectTool == DeleteEquipment)
 		{
-
+			break;
 		}
 	}
 	}
+}
+
+void cWeaponItem::NormalWeaponStats(cCharacter* pCharacter)
+{
+	pCharacter->m_nFullAttack += 100;
 }

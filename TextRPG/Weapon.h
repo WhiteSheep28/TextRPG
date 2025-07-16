@@ -12,7 +12,8 @@ public:
 	cWeapon();
 	virtual ~cWeapon();
 
-	virtual void Weapon_Ui();
+	virtual void Weapon_Ui(cMainSystem* pMainSystem,cCharacter* pCharacter, cWeaponItem* pWeaponItem);
+	virtual void InventoryClean(cEquipment* pEquipment);
 
 protected:
 	int m_nEquipmentSlot[10];
@@ -20,4 +21,5 @@ protected:
 
 private:
 
+	friend class cEquipment;
 };

@@ -12,7 +12,9 @@ public:
 	cHeadItem();
 	virtual ~cHeadItem();
 
-	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool);
+	virtual void SearchEquipmentCode(cCharacter* pCharacter, cHeadItem* pHeadItem, int nEquipmentNum, int nSelectTool);
+
+	virtual void NormalHeadStats(cCharacter* pCharacter);
 
 protected:
 

@@ -7,6 +7,7 @@ using namespace std;
 
 cMonster::cMonster()
 {
+	m_strName = "Monster";
 	m_nHealth = 0;
 	m_nAttack = 0;
 	m_nDefense = 0;

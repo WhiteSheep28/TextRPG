@@ -12,7 +12,9 @@ public:
 	cBodyItem();
 	virtual ~cBodyItem();
 
-	virtual void SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool);
+	virtual void SearchEquipmentCode(cCharacter* pCharacter, cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool);
+
+	virtual void NormalBodyStats(cCharacter* pCharacter);
 
 protected:
 

@@ -6,6 +6,7 @@
 using namespace std;
 
 char cMainSystem::m_nSelect = 0;
+int cMainSystem::m_nDungeonBestRecord = 0;
 
 cMainSystem::cMainSystem()
 {

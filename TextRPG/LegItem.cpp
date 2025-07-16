@@ -3,6 +3,7 @@
 #include "MainSystem.h"
 #include "LegItem.h"
 #include "Equipment.h"
+#include "Character.h"
 
 #define EquipmentUi 1
 #define UseEquipment 2
@@ -21,29 +22,47 @@ cLegItem::~cLegItem()
 
 }
 
-void cLegItem::SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool)
+void cLegItem::SearchEquipmentCode(cCharacter* pCharacter, cLegItem* pLegItem, int nEquipmentNum, int nSelectTool)
 {
 	switch (nEquipmentNum)
 	{
+	case '0':
+	case 0:
+	{
+		cout << "장비 없음";
+		
+		break;
+	}
 	case '1':
 	case 1:
 	{
 		if (nSelectTool == EquipmentUi)
 		{
 			cout << "일반 바지";
+
+			break;
 		}
 		else if (nSelectTool == UseEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[2] = 1;
+			NormalLegStats(pCharacter);
+
+			break;
 		}
 		else if (nSelectTool == GetEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[2] = nEquipmentNum;
+			pLegItem->m_nEquipmentSlot[2] = nEquipmentNum;
+
+			break;
 		}
 		else if (nSelectTool == DeleteEquipment)
 		{
-
+			break;
 		}
 	}
 	}
+}
+
+void cLegItem::NormalLegStats(cCharacter* pCharacter)
+{
+	pCharacter->m_nFullHealth += 100;
 }

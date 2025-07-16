@@ -97,7 +97,8 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cEquipment*>(pEquipment),
+					dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
 
 				pMainSystem->InputSelect();
 
@@ -130,7 +131,8 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cEquipment*>(pEquipment),
+					dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
 
 				pMainSystem->InputSelect();
 
@@ -163,7 +165,8 @@ void main()
 			//직업 선택
 			while (1)
 			{
-				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter));
+				pMainUi->Job_Introduce(dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cEquipment*>(pEquipment),
+					dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
 
 				pMainSystem->InputSelect();
 
@@ -196,7 +199,8 @@ void main()
 	//메인 화면
 	while (1)
 	{
-		pMainUi->Game_Main(dynamic_cast<cCharacter*>(pCharacter));
+		pMainUi->Game_Main(pMainSystem, dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cEquipment*>(pEquipment),
+			dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
 
 		pMainSystem->InputSelect();
 

@@ -20,7 +20,7 @@ cBody::~cBody()
 
 }
 
-void cBody::Body_Ui(cMainSystem* pMainSystem, cBodyItem* pBodyItem)
+void cBody::Body_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cBodyItem* pBodyItem)
 {
 	while (1)
 	{
@@ -34,7 +34,7 @@ void cBody::Body_Ui(cMainSystem* pMainSystem, cBodyItem* pBodyItem)
 		{
 			cout << m_nEquipmentCount << ". ";
 
-			pBodyItem->SearchEquipmentCode(pBodyItem, m_nEquipmentSlot[m_nEquipmentCount], 1);
+			pBodyItem->SearchEquipmentCode(pCharacter, pBodyItem, m_nEquipmentSlot[m_nEquipmentCount], 1);
 
 			cout << endl;
 
@@ -50,6 +50,44 @@ void cBody::Body_Ui(cMainSystem* pMainSystem, cBodyItem* pBodyItem)
 			break;
 		}
 
-		pBodyItem->SearchEquipmentCode(pBodyItem, m_nEquipmentSlot[GetSelect()], 2);
+		pBodyItem->SearchEquipmentCode(pCharacter, pBodyItem, m_nEquipmentSlot[GetSelect()], 2);
+	}
+}
+
+void cBody::InventoryClean(cEquipment * pEquipment)
+{
+	int nTempCount = 0;
+
+	m_nEquipmentCount = 1;
+
+	nTempCount = m_nEquipmentCount;
+
+	if (m_nEquipmentSlot[0] == 0)
+	{
+		while (m_nEquipmentSlot[m_nEquipmentCount] != 0)
+		{
+			m_nEquipmentCount++;
+		}
+
+		while (m_nEquipmentSlot[0] != 0)
+		{
+			m_nEquipmentSlot[m_nEquipmentCount - 1] = m_nEquipmentSlot[m_nEquipmentCount];
+			m_nEquipmentSlot[m_nEquipmentCount] = 0;
+			m_nEquipmentCount--;
+		}
+	}
+
+	m_nEquipmentCount = nTempCount;
+
+	while (m_nEquipmentCount < LastEquipmentSlot)
+	{
+		while (m_nEquipmentSlot[m_nEquipmentCount] != 0 && m_nEquipmentSlot[m_nEquipmentCount - 1] == 0)
+		{
+			m_nEquipmentSlot[m_nEquipmentCount - 1] = m_nEquipmentSlot[m_nEquipmentCount];
+			m_nEquipmentSlot[m_nEquipmentCount] = 0;
+			m_nEquipmentCount--;
+		}
+
+		m_nEquipmentCount++;
 	}
 }
