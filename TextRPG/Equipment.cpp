@@ -6,6 +6,7 @@
 #include "BodyItem.h"
 #include "LegItem.h"
 #include "WeaponItem.h"
+#include "Body.h"
 
 #define LastEquipmentSlot 4
 
@@ -29,7 +30,9 @@ cEquipment::~cEquipment()
 
 }
 
-void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem)
+void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
+cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
 	while (1)
 	{
@@ -44,7 +47,7 @@ void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
 		cout << endl;
 
 		cout << "°©¿Ê. ";
-		pBodyItem->SearchEquipmentCode(pEquipment, m_nEquipmentSlot[1], 1);
+		pBodyItem->SearchEquipmentCode(pBodyItem, m_nEquipmentSlot[1], 1);
 		cout << endl;
 
 		cout << "¹ÙÁö. ";
@@ -70,7 +73,7 @@ void cEquipment::Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
 		}
 		else if (pMainSystem->GetSelect() == '2')
 		{
-			pBodyItem->Body_Ui();
+			pBody->Body_Ui(pMainSystem, pBodyItem);
 		}
 		else if (pMainSystem->GetSelect() == '3')
 		{

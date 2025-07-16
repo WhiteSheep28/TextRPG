@@ -1,29 +1,4 @@
-﻿  Archer.cpp
-  Body.cpp
-  BodyItem.cpp
-  Character.cpp
-  DungeonUi.cpp
-  Equipment.cpp
-  FarmUi.cpp
-  Goblin.cpp
-  Head.cpp
-  HeadItem.cpp
-  Inventory.cpp
-  Item.cpp
-  Leg.cpp
-  LegItem.cpp
-  MainSystem.cpp
-  MainUi.cpp
-  Monster.cpp
-  Slime.cpp
-  Socerer.cpp
-  Warrior.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Weapon.cpp
+﻿  Equipment.cpp
   WeaponItem.cpp
-  Wolf.cpp
-  main.cpp
-C:\Users\white\Downloads\TextRPG-main\TextRPG-main\TextRPG\main.cpp(25,6): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
   코드를 생성하고 있습니다...
-  TextRPG.vcxproj -> C:\Users\white\Downloads\TextRPG-main\TextRPG-main\x64\Debug\TextRPG.exe
+  TextRPG.vcxproj -> C:\Users\admin\Downloads\TextRPG-main\x64\Debug\TextRPG.exe

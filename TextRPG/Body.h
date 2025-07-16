@@ -12,7 +12,7 @@ public:
 	cBody();
 	virtual ~cBody();
 
-	virtual void Body_Ui();
+	virtual void Body_Ui(cMainSystem* pMainSystem, cBodyItem* pBodyItem);
 
 protected:
 	int m_nEquipmentSlot[10];

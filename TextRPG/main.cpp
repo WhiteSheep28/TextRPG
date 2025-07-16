@@ -20,6 +20,11 @@
 #include "LegItem.h"
 #include "WeaponItem.h"
 
+#include "Head.h"
+#include "Body.h"
+#include "Leg.h"
+#include "Weapon.h"
+
 using namespace std;
 
 void main()
@@ -42,6 +47,11 @@ void main()
 	cMainSystem* pBodyItem = new cBodyItem;
 	cMainSystem* pLegItem = new cLegItem;
 	cMainSystem* pWeaponItem = new cWeaponItem;
+
+	cMainSystem* pHead = new cHead;
+	cMainSystem* pBody = new cBody;
+	cMainSystem* pLeg = new cLeg;
+	cMainSystem* pWeapon = new cWeapon;
 
 	//게임 시작
 	while (1)
@@ -204,7 +214,9 @@ void main()
 		}
 		else if (pMainSystem->GetSelect() == '4')
 		{
-			pEquipment->Equipment_Ui(pMainSystem, dynamic_cast<cEquipment*>(pEquipment), dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem));
+			pEquipment->Equipment_Ui(pMainSystem, dynamic_cast<cEquipment*>(pEquipment), 
+				dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem),
+				dynamic_cast<cHead*>(pHead), dynamic_cast<cBody*>(pBody), dynamic_cast<cLeg*>(pLeg), dynamic_cast<cWeapon*>(pWeapon));
 		}
 		else if (pMainSystem->GetSelect() == ' ')
 		{

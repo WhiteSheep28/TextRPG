@@ -12,11 +12,12 @@ public:
 	cBodyItem();
 	virtual ~cBodyItem();
 
-	virtual void SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool);
+	virtual void SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool);
 
 protected:
 
 private:
 
 	friend class cEquipment;
+	friend class cBody;
 };

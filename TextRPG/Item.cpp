@@ -79,6 +79,10 @@ void cItem::SearchItemCode(cInventory* pInventory, cCharacter* pCharacter, int n
 
 		break;
 	}
+	default:
+	{
+		break;
+	}
 	}
 }
 

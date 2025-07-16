@@ -30,20 +30,24 @@ void cHeadItem::SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, i
 	{
 		if (nSelectTool == EquipmentUi)
 		{
-			cout << "ÀÏ¹Ý °©¿Ê";
+			cout << "ÀÏ¹Ý Åõ±¸";
 		}
 		else if (nSelectTool == UseEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[1] = 1;
+			pEquipment->m_nEquipmentSlot[0] = 1;
 		}
 		else if (nSelectTool == GetEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[1] = nEquipmentNum;
+			pEquipment->m_nEquipmentSlot[0] = nEquipmentNum;
 		}
 		else if (nSelectTool == DeleteEquipment)
 		{
 
 		}
+	}
+	default:
+	{
+		break;
 	}
 	}
 }

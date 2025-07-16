@@ -21,7 +21,7 @@ cBodyItem::~cBodyItem()
 
 }
 
-void cBodyItem::SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, int nSelectTool)
+void cBodyItem::SearchEquipmentCode(cBodyItem* pBodyItem, int nEquipmentNum, int nSelectTool)
 {
 	switch (nEquipmentNum)
 	{
@@ -35,15 +35,15 @@ void cBodyItem::SearchEquipmentCode(cEquipment* pEquipment, int nEquipmentNum, i
 	{
 		if (nSelectTool == EquipmentUi)
 		{
-			cout << "ÀÏ¹Ý Åõ±¸";
+			cout << "ÀÏ¹Ý °©¿Ê";
 		}
 		else if (nSelectTool == UseEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[0] = 1;
+			pBodyItem->m_nEquipmentSlot[1] = 1;
 		}
 		else if (nSelectTool == GetEquipment)
 		{
-			pEquipment->m_nEquipmentSlot[0] = nEquipmentNum;
+			pBodyItem->m_nEquipmentSlot[1] = nEquipmentNum;
 		}
 		else if (nSelectTool == DeleteEquipment)
 		{

@@ -12,7 +12,9 @@ public:
 	cEquipment();
 	virtual ~cEquipment();
 
-	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem);
+	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
+		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon);
 
 protected:
 	int m_nEquipmentSlot[4];

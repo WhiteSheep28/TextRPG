@@ -12,6 +12,10 @@ class cBodyItem;
 class cHeadItem;
 class cLegItem;
 class cWeaponItem;
+class cHead;
+class cBody;
+class cLeg;
+class cWeapon;
 
 class cMainSystem
 {
@@ -46,13 +50,15 @@ public:
 	virtual void UseHealingPotion(cCharacter* pCharacter) { ; }
 
 	//Equipment
-	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem) { ; }
+	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
+		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem, 
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
 
 	//Head
 	virtual void Head_Ui() { ; }
 
 	//Body
-	virtual void Body_Ui() { ; }
+	virtual void Body_Ui(cMainSystem* pMainSystem, cBodyItem* pBodyItem) { ; }
 
 	//Leg
 	virtual void Leg_Ui() { ; }
