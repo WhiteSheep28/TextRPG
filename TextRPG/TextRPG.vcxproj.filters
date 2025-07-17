@@ -51,9 +51,6 @@
     <ClCompile Include="MainSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MainUi.cpp">
-      <Filter>소스 파일\Ui</Filter>
-    </ClCompile>
     <ClCompile Include="DungeonUi.cpp">
       <Filter>소스 파일\Ui</Filter>
     </ClCompile>
@@ -116,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="WeaponItem.cpp">
       <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="MainUi.cpp">
+      <Filter>소스 파일\Ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

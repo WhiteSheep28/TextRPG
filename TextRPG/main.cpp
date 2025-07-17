@@ -218,7 +218,7 @@ void main()
 		}
 		else if (pMainSystem->GetSelect() == '4')
 		{
-			pEquipment->Equipment_Ui(pMainSystem, dynamic_cast<cEquipment*>(pEquipment), 
+			pEquipment->Equipment_Ui(pMainSystem, dynamic_cast<cCharacter*>(pCharacter), dynamic_cast<cEquipment*>(pEquipment),
 				dynamic_cast<cHeadItem*>(pHeadItem), dynamic_cast<cBodyItem*>(pBodyItem), dynamic_cast<cLegItem*>(pLegItem), dynamic_cast<cWeaponItem*>(pWeaponItem),
 				dynamic_cast<cHead*>(pHead), dynamic_cast<cBody*>(pBody), dynamic_cast<cLeg*>(pLeg), dynamic_cast<cWeapon*>(pWeapon));
 		}

@@ -5,6 +5,7 @@
 using namespace std;
 
 class cCharacter;
+class cMonster;
 class cInventory;
 class cItem;
 class cEquipment;
@@ -36,9 +37,10 @@ public:
 		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem) { ; }
 
 	//DungeonUi
-	virtual void Dungeon_Start() { ; }
-	virtual void Random_Monster() { ; }
-	virtual void Boss_Spawn() { ; }
+	virtual void Dungeon_Start(cMainSystem* pMainSystem) { ; }
+	virtual void Random_Monster(cMainSystem* pMainSystem) { ; }
+	virtual void Boss_Spawn(cMainSystem* pMainSystem) { ; }
+	virtual void DungeonFight(cMainSystem* pMainSystem, cMonster* pMonster, cCharacter* pCharacter) { ; }
 
 	//FarmUi
 	virtual void Farm_Start() { ; }
@@ -54,7 +56,7 @@ public:
 	virtual void UseHealingPotion(cCharacter* pCharacter) { ; }
 
 	//Equipment
-	virtual void Equipment_Ui(cMainSystem* pMainSystem, cEquipment* pEquipment, 
+	virtual void Equipment_Ui(cMainSystem* pMainSystem, cCharacter* pCharacter, cEquipment* pEquipment,
 		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem, 
 		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
 	virtual void GetEquipment(cEquipment* pEquipment, 
@@ -85,6 +87,12 @@ public:
 	virtual void My_Stats(cCharacter* pCharacter, cEquipment* pEquipment,
 		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem) { ; }
 	virtual void Skill_Tree() { ; }
+
+	virtual string GetName() { return m_strName; }
+	virtual int GetFullHealth() { return m_nFullHealth; }
+	virtual int GetFullAttack() { return m_nFullAttack; }
+	virtual int GetFullDefense() { return m_nFullDefense; }
+	virtual int GetFullMana() { return m_nFullMana; }
 
 protected:
 	static char m_nSelect;

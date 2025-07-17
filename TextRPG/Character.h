@@ -16,6 +16,12 @@ public:
 		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem);
 	virtual void Skill_Tree() { ; }
 
+	virtual string GetName() { return m_strName; }
+	virtual int GetFullHealth() { return m_nFullHealth; }
+	virtual int GetFullAttack() { return m_nFullAttack; }
+	virtual int GetFullDefense() { return m_nFullDefense; }
+	virtual int GetFullMana() { return m_nFullMana; }
+
 protected:
 	string m_strName;
 	int m_nHealth;
