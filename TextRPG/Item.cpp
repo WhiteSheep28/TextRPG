@@ -102,10 +102,10 @@ void cItem::UseHealingPotion(cCharacter* pCharacter)
 {
 	pCharacter = (cCharacter*)pCharacter;
 
-	pCharacter->m_nHealth += 100;
+	pCharacter->m_nFullHealth += 100;
 
-	if (pCharacter->m_nHealth >= 100)
+	if (pCharacter->m_nFullHealth >= 100)
 	{
-		pCharacter->m_nHealth = 100;
+		pCharacter->m_nFullHealth = 100;
 	}
 }

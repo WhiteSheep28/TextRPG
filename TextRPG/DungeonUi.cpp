@@ -6,6 +6,10 @@
 
 #include "Character.h"
 
+#include "Inventory.h"
+
+#include "Equipment.h"
+
 #include "Monster.h"
 #include "Goblin.h"
 #include "Slime.h"
@@ -25,20 +29,28 @@ cDungeonUi::~cDungeonUi()
 
 }
 
-void cDungeonUi::Dungeon_Start(cMainSystem* pMainSystem, cCharacter* pCharacter)
+void cDungeonUi::Dungeon_Start(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, 
+	cEquipment* pEquipment, cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+	cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
 
 	if (m_nBossCount == 10)
 	{
-		Boss_Spawn(pMainSystem, pCharacter);
+		Boss_Spawn(pMainSystem, pCharacter, pInventory, pEquipment, pItem,
+			pHeadItem, pBodyItem, pLegItem, pWeaponItem,
+			pHead, pBody, pLeg, pWeapon);
 	}
 	else
 	{
-		Random_Monster(pMainSystem, pCharacter);
+		Random_Monster(pMainSystem, pCharacter, pInventory, pEquipment, pItem,
+			pHeadItem, pBodyItem, pLegItem, pWeaponItem,
+			pHead, pBody, pLeg, pWeapon);
 	}
 }
 
-void cDungeonUi::Random_Monster(cMainSystem* pMainSystem, cCharacter* pCharacter)
+void cDungeonUi::Random_Monster(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, 
+	cEquipment* pEquipment, cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+	cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
 	m_nRandomMonsterCode = rand() % 3;
 
@@ -69,10 +81,14 @@ void cDungeonUi::Random_Monster(cMainSystem* pMainSystem, cCharacter* pCharacter
 	}
 	}
 
-	DungeonFight(pMainSystem, dynamic_cast<cMonster*>(pMonster), pCharacter);
+	DungeonFight(pMainSystem, dynamic_cast<cMonster*>(pMonster), pCharacter, pInventory, pEquipment, pItem,
+		pHeadItem, pBodyItem, pLegItem, pWeaponItem, 
+		pHead, pBody, pLeg, pWeapon);
 }
 
-void cDungeonUi::Boss_Spawn(cMainSystem* pMainSystem, cCharacter* pCharacter)
+void cDungeonUi::Boss_Spawn(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, 
+	cEquipment* pEquipment, cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+	cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
 	switch (m_nBossCount)
 	{
@@ -83,8 +99,65 @@ void cDungeonUi::Boss_Spawn(cMainSystem* pMainSystem, cCharacter* pCharacter)
 	}
 }
 
-void cDungeonUi::DungeonFight(cMainSystem* pMainSystem, cMonster* pMonster, cCharacter* pCharacter)
+void cDungeonUi::DungeonFight(cMainSystem* pMainSystem, cMonster* pMonster, cCharacter* pCharacter, 
+	cInventory* pInventory, cEquipment* pEquipment, cItem* pItem,
+	cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+	cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon)
 {
-	cout << "{ " << pCharacter->GetName() << " } { " << pMonster->GetName() << " }" << endl;
-	cout << "{ " << pCharacter->GetFullHealth() << " } { " << pMonster->Get
+	while (1)
+	{
+		system("cls");
+
+		cout << m_nDungeonRecord << "층" << endl;
+		cout << "{ " << pCharacter->GetName() << " }         { " << pMonster->GetName() << " }" << endl;
+		cout << "{ 체력 : " << pCharacter->GetFullHealth() << " }   { 체력 : " << pMonster->GetHealth() << " }" << endl;
+		cout << "{ 방어력 : " << pCharacter->GetFullDefense() << " }  { 방어력 : " << pMonster->GetDefense() << " }" << endl;
+		cout << "{ 공격력 : " << pCharacter->GetFullAttack() << " } { 공격력 : " << pMonster->GetAttack() << " }" << endl;
+		cout << "{ 마나 : " << pCharacter->GetFullMana() << " }" << endl;
+		cout << "{ 선택지 }" << endl;
+		cout << "1. 일반 공격" << endl;
+		cout << "2. 스킬창" << endl;
+		cout << "3. 인벤토리" << endl;
+		cout << "4. 장비창" << endl;
+		cout << "Space. 던전 나가기" << endl;
+
+		pMainSystem->InputSelect();
+
+		switch (pMainSystem->GetSelect())
+		{
+		case '1':
+		case 1:
+		{
+
+			break;
+		}
+		case '2':
+		case 2:
+		{
+			pCharacter->Skill_Tree();
+
+			break;
+		}
+		case '3':
+		case 3:
+		{
+			pInventory->Inventory_Ui(pMainSystem, pCharacter, pInventory, pItem);
+
+			break;
+		}
+		case '4':
+		case 4:
+		{
+			pEquipment->Equipment_Ui(pMainSystem, pCharacter, pEquipment,
+				pHeadItem, pBodyItem, pLegItem, pWeaponItem,
+				pHead, pBody, pLeg, pWeapon);
+
+			break;
+		}
+		case ' ':
+		{
+			return;
+		}
+		}
+	}
 }

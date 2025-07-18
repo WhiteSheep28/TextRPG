@@ -1,35 +1,4 @@
-﻿  Archer.cpp
-  Body.cpp
-  BodyItem.cpp
-  Character.cpp
-  DungeonUi.cpp
-  Equipment.cpp
-C:\Users\admin\Downloads\TextRPG-main\TextRPG\DungeonUi.cpp(89,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
-  FarmUi.cpp
-  Goblin.cpp
-  Head.cpp
-  HeadItem.cpp
-  Inventory.cpp
+﻿  DungeonUi.cpp
   Item.cpp
-  Leg.cpp
-  LegItem.cpp
-  main.cpp
-C:\Users\admin\Downloads\TextRPG-main\TextRPG\main.cpp(30,6): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-C:\Users\admin\Downloads\TextRPG-main\TextRPG\main.cpp(209,16): error C2660: 'cMainSystem::Dungeon_Start': 함수는 0개의 인수를 사용하지 않습니다.
-      C:\Users\admin\Downloads\TextRPG-main\TextRPG\MainSystem.h(40,15):
-      'cMainSystem::Dungeon_Start' 선언을 참조하십시오.
-      C:\Users\admin\Downloads\TextRPG-main\TextRPG\main.cpp(209,16):
-      인수 목록 '()'을(를) 일치시키는 동안
-  
-  MainSystem.cpp
-  MainUi.cpp
-  Monster.cpp
-  Slime.cpp
-  Socerer.cpp
   코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Warrior.cpp
-  Weapon.cpp
-  WeaponItem.cpp
-  Wolf.cpp
-  코드를 생성하고 있습니다...
+  TextRPG.vcxproj -> C:\Users\white\Downloads\TextRPG-main\TextRPG-main\x64\Debug\TextRPG.exe

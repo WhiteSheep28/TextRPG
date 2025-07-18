@@ -37,10 +37,18 @@ public:
 		cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem) { ; }
 
 	//DungeonUi
-	virtual void Dungeon_Start(cMainSystem* pMainSystem) { ; }
-	virtual void Random_Monster(cMainSystem* pMainSystem) { ; }
-	virtual void Boss_Spawn(cMainSystem* pMainSystem) { ; }
-	virtual void DungeonFight(cMainSystem* pMainSystem, cMonster* pMonster, cCharacter* pCharacter) { ; }
+	virtual void Dungeon_Start(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cEquipment* pEquipment,
+		cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
+	virtual void Random_Monster(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cEquipment* pEquipment,
+		cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
+	virtual void Boss_Spawn(cMainSystem* pMainSystem, cCharacter* pCharacter, cInventory* pInventory, cEquipment* pEquipment,
+		cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
+	virtual void DungeonFight(cMainSystem* pMainSystem, cMonster* pMonster, cCharacter* pCharacter, 
+		cInventory* pInventory, cEquipment* pEquipment, cItem* pItem, cHeadItem* pHeadItem, cBodyItem* pBodyItem, cLegItem* pLegItem, cWeaponItem* pWeaponItem,
+		cHead* pHead, cBody* pBody, cLeg* pLeg, cWeapon* pWeapon) { ; }
 
 	//FarmUi
 	virtual void Farm_Start() { ; }
@@ -94,6 +102,11 @@ public:
 	virtual int GetFullDefense() { return m_nFullDefense; }
 	virtual int GetFullMana() { return m_nFullMana; }
 
+	virtual int GetHealth() { return m_nHealth; }
+	virtual int GetAttack() { return m_nAttack; }
+	virtual int GetDefense() { return m_nDefense; }
+	virtual int GetMana() { return m_nMana; }
+
 protected:
 	static char m_nSelect;
 	static int m_nDungeonBestRecord;
@@ -126,6 +139,9 @@ protected:
 	int m_nMana;
 	int m_nFullMana;
 	int m_nHungry;
+
+	//Damage
+	int AllDamage;
 
 private:
 

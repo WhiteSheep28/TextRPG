@@ -27,11 +27,8 @@ cArcher::~cArcher()
 void cArcher::Skill_Tree()
 {
 	cout << "{ 스킬 }" << endl;
-	cout << "1. 일반 공격" << endl;
-	cout << "2. 더블 샷" << endl;
-	cout << "3. 크리티컬 샷" << endl;
-	cout << "4. 에로우 봄" << endl;
-	cout << "5. 인벤토리" << endl;
-	cout << "6. 장비창" << endl;
+	cout << "1. 더블 샷" << endl;
+	cout << "2. 크리티컬 샷" << endl;
+	cout << "3. 에로우 봄" << endl;
 	cout << "Space. 나가기" << endl;
 }

@@ -13,10 +13,10 @@ public:
 	virtual ~cMonster();
 
 	virtual string GetName() { return m_strName; }
-	virtual int GetFullHealth() { return m_nFullHealth; }
-	virtual int GetFullAttack() { return m_nFullAttack; }
-	virtual int GetFullDefense() { return m_nFullDefense; }
-	virtual int GetFullMana() { return m_nFullMana; }
+	virtual int GetHealth() { return m_nHealth; }
+	virtual int GetAttack() { return m_nAttack; }
+	virtual int GetDefense() { return m_nDefense; }
+	virtual int GetMana() { return m_nMana; }
 
 protected:
 
